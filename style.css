@@ -1,0 +1,460 @@
+/* CONFIG GERIAS DA PAGINA */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-confirm1: gray;
+  --color-confirm: #d4f6d9;
+  --text-cont: rgb(0, 0, 0);
+  --text-color: black;
+  --bg-color: #f3f4fb;
+  --bg-color-relative: #d9d9d9;
+  --bg-color-relative1: white;
+  --bg-color-max: #ffffff;
+  --color-blue: #2c55fb;
+  --color-blue-max: #103ffa;
+  --text-color-hover: #333;
+  --switch-bg-url: url(./assets/moon-stars.svg);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-houver: rgba(0, 0, 0, 0.02);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+}
+
+.dark {
+  --color-confirm1: rgb(174, 174, 174);
+  --color-confirm: #718975;
+  --text-cont: rgb(0, 0, 0);
+  --text-color: white;
+  --bg-color: #111111eb;
+  --bg-color-relative: #444;
+  --bg-color-relative1: white;
+  --bg-color-max: #2e2e2e;
+  --color-blue: #2c55fb;
+  --color-blue-max: #103ffa;
+  --text-color-hover: #ccc;
+  --switch-bg-url: url(./assets/sun.svg);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+body * {
+  font-family: "Space Mono", monospace;
+}
+
+/* FIM - CONFIG GERIAS DA PAGINA */
+
+/* INICIO - ESTILIZAÇÃO GERAL DO MENU */
+.menu {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  display: inline-block;
+}
+
+.menu li:last-child {
+  margin-left: auto;
+}
+
+.menu li a {
+  display: block;
+  padding: 30px 50px;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.menu li a:hover {
+  color: var(--text-color-hover);
+}
+
+/* ESTILIZAÇÃO DO NOME DO PROJETO */
+#text-logo {
+  margin-right: auto;
+}
+
+#text-logo a {
+  color: var(--color-blue);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+}
+
+#text-logo a:hover {
+  color: var(--color-blue-max);
+}
+/* FIM - ESTILIZAÇÃO GERAL DO MENU */
+
+/* INICIO BOTÃO DE MODE-COLOR */
+#switch {
+  margin: 4px auto;
+  position: relative;
+  width: 64px;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+  animation: slide-back 0.2s;
+}
+
+.dark #switch button {
+  right: 0;
+  left: inherit;
+  animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+/* FIM BOTÃO DE MODE-COLOR */
+
+/* PADRÃO - TEXTO SEM TAREFA */
+.sem_tarefa {
+  color: var(--text-color);
+}
+
+/* INICIO - MENU: SELECIONAR CATEGORIA */
+.list-type form {
+  display: flex;
+  width: 200px;
+  height: 54px;
+  background-color: var(--bg-color-relative);
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 50px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.list-type form select {
+  border: none;
+  background-color: var(--bg-color-relative);
+  display: flex;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--color-blue-max);
+  text-align: center;
+  justify-content: center;
+  outline: 0;
+  padding-right: 20px;
+}
+
+.list-type form select option {
+  font-size: 18px;
+  border: none;
+  outline: 0;
+}
+/* FIM - MENU: SELECIONAR CATEGORIA */
+
+/* INICIO - GERAL BOTÃO E CAMPO ADD */
+.div-add {
+  text-align: center;
+}
+
+.div-add button,
+input {
+  display: inline-block;
+  width: 340px;
+  height: 42px;
+  margin-top: 30px;
+  border-radius: 8px;
+  border: none;
+  background: var(--surface-color);
+  vertical-align: middle;
+}
+
+#add-list {
+  width: 56px;
+  transition: 0.3s;
+}
+
+#add-list:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+#add-list i {
+  vertical-align: middle;
+  color: var(--text-color);
+}
+
+/* INPUT*/
+#add-field {
+  padding-left: 24px;
+  color: var(--text-color);
+  outline: none;
+}
+/* FIM - BOTÃO E CAMPO ADD */
+
+/* INICIO - Contêiner DE TAREFAS */
+#conteiner {
+  width: auto;
+  max-width: 620px;
+  height: auto;
+  background: var(--bg-color-max);
+  margin: 50px auto 50px auto;
+  border: 1px solid var(--text-cont);
+  border-radius: 10px;
+}
+
+/* TAREFA INDIVIDUAL */
+#items-list {
+  margin: 24px;
+}
+
+#items-list ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  
+}
+
+#items-list ul li {
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.fade-in {
+  opacity: 1 !important;
+}
+
+
+#items-list ul li.visible {
+  opacity: 1;
+}
+
+#items-list ul li p {
+  display: flex;
+  align-items: flex-start;
+  background: var(--bg-color);
+  border: 1px solid var(--stroke-color);
+
+  padding: 16px 24px;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  word-break: break-word;
+  flex-direction: column;
+
+  padding-right: 80px;
+  color: var(--text-color);
+
+}
+
+#items-list ul li button {
+  display: flex;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+  border: none;
+  transition: 0.2s;
+  border: solid 1px blue;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#items-list ul li button i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 25%;
+  color: var(--color-blue-max);
+}
+
+#items-list ul li button:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+#tag_text .line-category {
+  display: flex;
+  margin-top: 10px;
+  color: blue;
+  border-radius: 6px;
+  border: solid 1px #103ffa;
+  padding: 1px 10px;
+  align-items: flex-end;
+  background-color: #ffffff;
+  font-size: 12px;
+}
+/* TAREFA INDIVIDUAL */
+
+/* BOTÕES DE CONFIRM E DELETE */
+.confirm_button {
+  background: var(--bg-color-relative1);
+  right: 45px;
+  margin-right: 5px;
+}
+
+.delete-button {
+  background: var(--bg-color-relative1);
+  right: 15px;
+}
+
+/* CASO TENHA SIDO CONFIRMADA */
+.click p {
+  background: var(--color-confirm) !important;
+  text-decoration: line-through;
+  color: var(--color-confirm1) !important;
+  border-radius: 8px;
+}
+/* FIM - Contêiner DE TAREFAS */
+
+/* FRASE */
+#footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  margin-bottom: 24px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  grid-gap: 1.5px;
+}
+
+/* INICIO DA TROCA DE CORAÇÕES */
+
+#footer span:before {
+  content: " 💙 ";
+}
+
+#footer span:hover:before {
+  content: "❤️";
+}
+/* INICIO DA TROCA DE CORAÇÕES */
+
+/* INICIO DA ANIMAÇÃO DO CORAÇÃO */
+@-webkit-keyframes pulsar-coracao {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+@keyframes pulsar-coracao {
+  to {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+}
+#footer span {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+}
+#footer span:hover,
+#footer span:focus,
+#footer span:active {
+  -webkit-animation-name: pulsar-coracao;
+  animation-name: pulsar-coracao;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+}
+
+/* FIM DA ANIMAÇÃO DO CORAÇÃO */
+
+
+/* CONFIG PARA DISPOSITIVOS MENORES */
+@media (max-width: 768px) {
+  .menu li:nth-child(2),
+  .menu li:nth-child(3),
+  .menu li:nth-child(4) {
+    display: none;
+  }
+
+  #conteiner {
+    width: auto;
+    height: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #switch {
+    margin-right: 30px;
+  }
+
+  #text-logo a {
+    font-size: 30px;
+  }
+}
+
+
+/* Animações de Transições do botão*/
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+/* END */

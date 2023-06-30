@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html class="" lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List - Tarefas</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./assets/list-circle.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <!-- INICIO DO MENU -->
+    <div>
+        <ul class="menu">
+            <li id="text-logo"><a href="">To-do List</a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="mailto:reurycardoso@googlegroups.com">Contato</a></li>
+            <li><a href="https://zaap.bio/reury" target="_blank">Sobre</a></li>
+            <!-- BOTÃO MODO -->
+            <li id="switch" onclick="toggleMode()">
+                <button></button>
+                <span></span>
+            </li>
+            <!-- END -->
+        </ul>
+    </div>
+    <!-- FIM MENU -->
+
+    <!-- INICIO DO MENU DE SELECÃO - CATEGORIA -->
+    <div class="list-type">
+        <form action="#">
+            <select name="list-category" id="category">
+                <option value="all">Todos</option>
+                <option value="personal">Pessoal</option>
+                <option value="work">Trabalho</option>
+                <option value="other">Outros</option>
+            </select>
+        </form>
+    </div>
+    <!-- FIM DO MENU DE SELECÃO - CATEGORIA -->
+
+    <!-- INICIO CAMPO ADICIONAR TASK -->
+    <div class="div-add">
+        <!-- CAMPO DE TEXTO -->
+        <input id="add-field" type="text" name="add" placeholder="adicione alguma tarefa..."></input>
+        <!-- BOTÃO ADD -->
+        <button id="add-list" onclick="addTask()"><i class="fa fa-plus"></i>
+        </button>
+    </div>
+    <!-- FIM CAMPO ADICIONAR TASK -->
+
+    <!-- INICIO CONTEINER DE TAREFAS -->
+    <div id="conteiner">
+        <div id="items-list">
+            <ul id="main">
+            </ul>
+        </div>
+    </div>
+    <!-- INICIO CONTEINER DE TAREFAS -->
+
+    <!-- FRASE FINAL -->
+    <div style="text-decoration: none ;  color: var(--text-color);" id="footer">
+        <p>Feito com <span></span> por <a href="" style="text-decoration: none ; color: var(--text-color);">Reury</a></p>
+    </div>
+    <!-- END -->
+
+    <!-- IMPORTAR JS -->
+    <script src="./script.js"></script>
+    <!-- JS -->
+</body>
+
+</html>
